@@ -10,39 +10,20 @@
 
 ```
 seaof0@github:~$ ./engage.sh --mode=redteam
-
  [+] target scope ............ authorized engagements only
  [+] modules ................. pentest · code-audit · dfir · cloud · binary
  [+] ai-orchestration ........ dsh presets // MCP toolchain
  [+] doctrine ................ verify everything, trust nothing
  [+] status .................. ● ONLINE
-
 seaof0@github:~$ █
 ```
 
 <div align="center">
-
 ![Red Team](https://img.shields.io/badge/RED_TEAM-ff2d78?style=for-the-badge)
 ![Pentest](https://img.shields.io/badge/PENTEST-7c3aed?style=for-the-badge)
 ![Code Audit](https://img.shields.io/badge/CODE_AUDIT-2563eb?style=for-the-badge)
 ![DFIR](https://img.shields.io/badge/DFIR-00b8d9?style=for-the-badge)
 ![AI Security](https://img.shields.io/badge/AI_SECURITY-22c55e?style=for-the-badge)
-
-</div>
-
----
-
-### 🧰 `TECH STACK`
-
-<div align="center">
-
-**Languages**
-
-<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=py,rs,ts,js,powershell,bash&theme=dark" alt="languages" /></a>
-
-**Toolchain**
-
-<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=docker,git,github,linux,apple,vscode,nginx,sqlite&theme=dark" alt="toolchain" /></a>
 
 </div>
 
@@ -91,29 +72,9 @@ seaof0@github:~$ █
 
 ---
 
-### 📈 `CONTRIBUTION GRAPH`
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=SeaOf0&theme=tokyo-night&hide_border=true&area=true" width="100%" alt="activity" />
-</div>
-
----
-
 ### 🐍 `DEV SNAKE`
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/SeaOf0/SeaOf0/blob/output/github-snake-dark.svg" />
   <img src="https://github.com/SeaOf0/SeaOf0/blob/output/github-snake.svg" width="100%" alt="snake" />
 </picture>
-
----
-
-<div align="center">
-
-💬 *"Every finding deserves verification — trust nothing you cannot reproduce."*
-
-![Visitor](https://komarev.com/ghpvc/?username=SeaOf0&color=00e5ff&style=for-the-badge&label=VISITORS)
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:ff2d78,50:7c3aed,100:00e5ff&height=120&section=footer" width="100%" alt="footer" />
-
-</div>
