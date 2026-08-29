@@ -46,26 +46,7 @@ seaof0@github:~$ █
 
 <div align="center">
   <a href="https://github.com/SeaOf0">
-    <img height="160" src="assets/stats.svg" alt="stats" />
-  </a>
-  <a href="https://github.com/SeaOf0">
     <img height="160" src="https://streak-stats.demolab.com?user=SeaOf0&theme=tokyonight&hide_border=true" alt="streak" />
-  </a>
-</div>
-
-<div align="center">
-  <a href="https://github.com/SeaOf0">
-    <img height="160" src="assets/langs.svg" alt="langs" />
-  </a>
-</div>
-
----
-
-### 🏆 `TROPHIES`
-
-<div align="center">
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="assets/trophy.svg" alt="trophies" width="100%" />
   </a>
 </div>
 
