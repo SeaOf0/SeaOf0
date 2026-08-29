@@ -23,15 +23,23 @@ jobs:
 
       - name: Download dynamic cards
         run: |
-          curl -sfL --retry 3 --max-time 60 \
-            "https://github-readme-stats.vercel.app/api?username=SeaOf0&show_icons=true&theme=tokyonight&hide_border=true&card_width=390" \
-            -o assets/stats.svg
-          curl -sfL --retry 3 --max-time 60 \
-            "https://github-readme-stats.vercel.app/api/top-langs/?username=SeaOf0&theme=tokyonight&hide_border=true&layout=compact&card_width=390" \
-            -o assets/langs.svg
-          curl -sfL --retry 3 --max-time 60 \
-            "https://github-profile-trophy.vercel.app/?username=SeaOf0&theme=tokyonight&no-frame=true&no-bg=true&column=7" \
-            -o assets/trophy.svg
+          fetch() {
+            url="$1"; out="$2"; code=""
+            for i in 1 2 3 4 5; do
+              code="$(curl -sL --max-time 60 -o "$out" -w '%{http_code}' "$url" 2>/dev/null || echo 000)"
+              if [ "$code" = "200" ]; then echo "OK  $out"; return 0; fi
+              echo "attempt $i: $out HTTP $code"
+              sleep $((i * 8))
+            done
+            rm -f "$out"
+            echo "::warning::failed to fetch $out"
+            return 1
+          }
+          fail=0
+          fetch "https://github-readme-stats.vercel.app/api?username=SeaOf0&show_icons=true&theme=tokyonight&hide_border=true&card_width=390" assets/stats.svg || fail=1
+          fetch "https://github-readme-stats.vercel.app/api/top-langs/?username=SeaOf0&theme=tokyonight&hide_border=true&layout=compact&card_width=390" assets/langs.svg || fail=1
+          fetch "https://github-profile-trophy.vercel.app/?username=SeaOf0&theme=tokyonight&no-frame=true&no-bg=true&column=7" assets/trophy.svg || fail=1
+          exit $fail
 
       - name: Commit if changed
         run: |
