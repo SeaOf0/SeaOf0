@@ -1,0 +1,46 @@
+name: refresh cards
+
+on:
+  schedule:
+    - cron: "30 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download banner (first run only)
+        run: |
+          if [ ! -f assets/banner.svg ]; then
+            curl -sfL --retry 3 --max-time 60 \
+              "https://capsule-render.vercel.app/api?type=waving&color=0:ff2d78,50:7c3aed,100:00e5ff&height=200&section=header&text=S%20E%20A%20O%20F%200&fontSize=64&fontColor=ffffff&fontAlignY=34&animation=fadeIn" \
+              -o assets/banner.svg
+          fi
+
+      - name: Download dynamic cards
+        run: |
+          curl -sfL --retry 3 --max-time 60 \
+            "https://github-readme-stats.vercel.app/api?username=SeaOf0&show_icons=true&theme=tokyonight&hide_border=true&card_width=390" \
+            -o assets/stats.svg
+          curl -sfL --retry 3 --max-time 60 \
+            "https://github-readme-stats.vercel.app/api/top-langs/?username=SeaOf0&theme=tokyonight&hide_border=true&layout=compact&card_width=390" \
+            -o assets/langs.svg
+          curl -sfL --retry 3 --max-time 60 \
+            "https://github-profile-trophy.vercel.app/?username=SeaOf0&theme=tokyonight&no-frame=true&no-bg=true&column=7" \
+            -o assets/trophy.svg
+
+      - name: Commit if changed
+        run: |
+          git config user.name "SeaOf0"
+          git config user.email "78244378+SeaOf0@users.noreply.github.com"
+          git add assets/
+          if git diff --cached --quiet; then
+            echo "no changes"
+            exit 0
+          fi
+          git commit -m "chore: refresh stats cards"
+          git push
